@@ -1,0 +1,41 @@
+name: CI - Validacao do site
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validar-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar codigo do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias de teste
+        run: python -m pip install --upgrade pip pytest
+
+      - name: Executar testes automatizados
+        run: pytest -q
+
+      - name: Verificar estrutura obrigatoria
+        run: |
+          test -f site/index.html
+          test -f .github/workflows/ci.yml
+          test -f .github/workflows/cd.yml
+
+      - name: Gerar artefato do site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-validado
+          path: site/
