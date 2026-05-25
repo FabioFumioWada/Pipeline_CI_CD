@@ -2,14 +2,62 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Pipeline CI/CD - Teste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Pipeline CI/CD</title>
   <style>
-    body { font-family: Arial; text-align: center; padding: 50px; background: #0f172a; color: white; }
-    h1 { color: #3b82f6; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    h1 { font-size: 2.5em; margin-bottom: 20px; color: #60a5fa; }
+    .status {
+      background: rgba(34, 197, 94, 0.2);
+      border-left: 4px solid #22c55e;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .steps { margin: 30px 0; list-style: none; }
+    .steps li {
+      padding: 10px;
+      margin: 10px 0;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 4px;
+      border-left: 3px solid #3b82f6;
+    }
+    .steps li:before { content: "✓ "; color: #22c55e; font-weight: bold; margin-right: 10px; }
   </style>
 </head>
 <body>
-  <h1>🎉 Pipeline CI/CD Funcionando!</h1>
-  <p>Este site foi publicado automaticamente via GitHub Actions</p>
+  <div class="container">
+    <h1>🚀 Pipeline CI/CD</h1>
+    <div class="status">
+      <strong>✓ Status: Ativo e Funcionando</strong>
+    </div>
+    <h2 style="font-size: 1.3em; margin: 20px 0 15px;">Fluxo Automatizado:</h2>
+    <ul class="steps">
+      <li>Código enviado para GitHub (git push)</li>
+      <li>GitHub Actions dispara workflow CI</li>
+      <li>Testes executados automaticamente</li>
+      <li>Build validado</li>
+      <li>Workflow CD dispara automaticamente</li>
+      <li>Site publicado em GitHub Pages</li>
+    </ul>
+  </div>
 </body>
 </html>
